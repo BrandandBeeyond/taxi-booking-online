@@ -78,14 +78,14 @@ const FindRide = () => {
       </div>
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(0,0,0,0.5)] bg-opacity-50 backdrop-blur-sm">
-          <div className="bg-white rounded-xl p-6 w-full max-w-md relative">
+          <div className="bg-[rgba(35,35,35,1)] rounded-xl p-10 w-[700px] relative">
             <button
               className="absolute top-2 right-2 text-gray-600 hover:text-black text-xl"
               onClick={closeModal}
             >
               &times;
             </button>
-            <h2 className="text-lg font-semibold mb-4">
+            <h2 className="text-xl font-semibold mb-4">
               {modalType === "from" ? "Pickup Location" : "Drop Location"}
             </h2>
             <input
