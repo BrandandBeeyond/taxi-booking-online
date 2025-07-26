@@ -122,7 +122,7 @@ const FindRide = () => {
             >
               <i className="bx bx-x text-3xl"></i>
             </button>
-            <h2 className="text-lg font-semibold mb-4">
+            <h2 className="text-xl font-semibold mb-4">
               {modalType === "from" ? "Pickup Location" : "Drop Location"}
             </h2>
             <div className="flex relative">
