@@ -1,7 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { Lobster,Nunito } from "next/font/google";
+import { Lobster, Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const nunito = Nunito({
 const lobster = Lobster({
   variable: "--font-lobster",
   subsets: ["latin"],
-   weight: ["400"], 
+  weight: ["400"],
 });
 
 const geistMono = Geist_Mono({
@@ -26,17 +27,18 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Taxi Booking Service",
   description: "Book taxis easily with our next-gen service",
+ 
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${lobster.variable} ${nunito.variable} antialiased`}
-      >
-        <Navbar/>
-        {children}
-      </body>
-    </html>
+   <html lang="en">
+  <body suppressHydrationWarning={true}
+    className={`antialiased ${geistSans.variable} ${geistMono.variable} ${lobster.variable} ${nunito.variable}`}
+  >
+    <Navbar />
+    <main>{children}</main>
+  </body>
+</html>
   );
 }
