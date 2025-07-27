@@ -27,18 +27,18 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Taxi Booking Service",
   description: "Book taxis easily with our next-gen service",
- 
 };
 
 export default function RootLayout({ children }) {
   return (
-   <html lang="en">
-  <body suppressHydrationWarning={true}
-    className={`antialiased ${geistSans.variable} ${geistMono.variable} ${lobster.variable} ${nunito.variable}`}
-  >
-    <Navbar />
-    <main>{children}</main>
-  </body>
-</html>
+    <html lang="en">
+      <body
+        suppressHydrationWarning={true}
+        className={`antialiased ${geistSans.variable} ${geistMono.variable} ${lobster.variable} ${nunito.variable}`}
+      >
+        <Navbar />
+        <main>{children}</main>
+      </body>
+    </html>
   );
 }

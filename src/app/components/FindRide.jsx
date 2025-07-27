@@ -25,7 +25,8 @@ const FindRide = () => {
         )}.json`,
         {
           params: {
-            access_token: 'pk.eyJ1Ijoib3JnYW5pemUtMjYiLCJhIjoiY21kanprNnM1MHF4ZzJrc2Q4eTJhZHR2dyJ9.3EwYhqzi4Kc582EuLnb5Zw',
+            access_token:
+              "pk.eyJ1Ijoib3JnYW5pemUtMjYiLCJhIjoiY21kanprNnM1MHF4ZzJrc2Q4eTJhZHR2dyJ9.3EwYhqzi4Kc582EuLnb5Zw",
             autocomplete: true,
             limit: 5,
             country: "IN",
@@ -34,7 +35,7 @@ const FindRide = () => {
       );
       setSuggestions(res.data.features);
       console.log(query);
-      
+
       console.log(res.data.features);
     } catch (error) {
       console.error("Error fetching Mapbox suggestions:", error);
@@ -149,25 +150,22 @@ const FindRide = () => {
               {(modalType === "from" ? pickupSuggestions : dropSuggestions)
                 .length > 0 && (
                 <div className="absolute z-40 top-full left-12 right-0 bg-[rgba(35,35,35,1)] shadow-md rounded-md mt-1 max-h-[200px] overflow-y-auto">
-                  {modalType === "from"
+                  {(modalType === "from"
                     ? pickupSuggestions
-                    : dropSuggestions.map((place, index) => (
-                        <div
-                          key={index}
-                          onClick={() =>
-                            modalType === "from"
-                              ? handleSelect(
-                                  place,
-                                  setPickup,
-                                  setPickupSuggestions
-                                )
-                              : handleSelect(place, setDrop, setDropSuggestions)
-                          }
-                          className="px-4 py-2 cursor-pointer hover:bg-gray-100 text-sm text-black"
-                        >
-                          {place.place_name}
-                        </div>
-                      ))}
+                    : dropSuggestions
+                  ).map((place, index) => (
+                    <div
+                      key={index}
+                      onClick={() =>
+                        modalType === "from"
+                          ? handleSelect(place, setPickup, setPickupSuggestions)
+                          : handleSelect(place, setDrop, setDropSuggestions)
+                      }
+                      className="px-4 py-2 cursor-pointer text-sm text-white"
+                    >
+                      {place.place_name}
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
